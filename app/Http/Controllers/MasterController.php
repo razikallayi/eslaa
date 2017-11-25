@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\Team;
+use App\Models\Publication;
 use App\Models\News;
 
 class MasterController extends Controller
@@ -54,7 +55,8 @@ class MasterController extends Controller
 	
 	public function publications()
 	{
-		return view('project.publications');
+		$publications =Publication::all();
+		return view('project.publications',compact('publications'));
 	}
 
 	
@@ -67,7 +69,6 @@ class MasterController extends Controller
 	
 	public function team()
 	{
-		$teams =Team::all();
 		return view('project.team',compact('teams'));
 	}
 

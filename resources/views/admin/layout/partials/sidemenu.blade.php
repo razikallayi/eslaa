@@ -67,3 +67,22 @@
 </li>
 
 
+
+<!-- ################# team ################## -->
+<li id="mnu-publication">
+  <a href="javascript:void(0);" class="menu-toggle">
+   <span>Publication</span>
+ </a>
+ <ul class="ml-menu">
+  <li  class="add">
+    <a href="{{url('admin/publications/add')}}" class="">
+      <span>Add Publication</span>
+    </a>
+  </li>
+  <li  class="manage">
+    <a href="{{url('admin/publications')}}" class="">
+      <span>Manage Publication</span>
+    </a>
+  </li>
+</ul>
+</li>

@@ -62,6 +62,23 @@
 	</div>
 
 
+	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+		<div class="card">
+			<div class="header bg-project">
+				<h2>Publication</h2>
+			</div>
+			<div class="body">
+				<div class="list-group">
+					<br/>
+					<a href="{{url('admin/publications/add')}}" class="list-group-item">Add Publication</a>
+					<a href="{{url('admin/publications')}}" class="list-group-item">Manage Publication</a>
+					<br/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 
 
 

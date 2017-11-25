@@ -81,4 +81,16 @@ Route::group([
 	Route::post('news/image','NewsController@saveImage');
 	Route::delete('news/{id}','NewsController@destroy');
 
+
+
+	Route::get('publications','PublicationController@index');
+	Route::get('publications/add','PublicationController@create');
+	Route::post('publications','PublicationController@store');
+	Route::get('publications/edit/{id}','PublicationController@create');
+	Route::put('publications/edit/{id}','PublicationController@store');
+	Route::post('publications/image','PublicationController@saveImage');
+	Route::delete('publications/{id}','PublicationController@destroy');
+
+
+
 });
