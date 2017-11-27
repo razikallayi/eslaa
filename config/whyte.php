@@ -4,6 +4,7 @@ return [
     'project' => [
         'name' => 'Eslaa',
         'logo' => 'project/images/logo.png',
+        'favicon' => 'project/images/favicon.ico',
         'link' => '/',
     ],
 

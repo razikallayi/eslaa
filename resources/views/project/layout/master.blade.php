@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   @yield('meta')
   <title>Essa al Sulaiti Law Firm</title>
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="{{url(config('whyte.project.favicon'))}}" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700" rel="stylesheet">
 
   <link rel="stylesheet" href="{{url('project/css/font-awesome.css')}}" type="text/css">
