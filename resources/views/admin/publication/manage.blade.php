@@ -18,7 +18,7 @@
 <div class="col-sm-12 mode" id="ListMode">
 	<div class="card">
 		<div class="header bg-project">
-			<h2 class="">Manage Team</h2>
+			<h2 class="">Manage Publications</h2>
 		</div>
 
 		<div class="body table-wrapper">
@@ -66,7 +66,7 @@
 			<div class="card">
 				<div class="body">
 					No data to display.
-					<a href="{{url('admin/publications/add')}}" class="btn btn-info pull-right">Add Team</a>
+					<a href="{{url('admin/publications/add')}}" class="btn btn-info pull-right">Add Publications</a>
 				</div>
 			</div>
 		</div>
