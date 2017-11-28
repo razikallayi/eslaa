@@ -79,6 +79,7 @@ class MasterController extends Controller
 	
 	public function team()
 	{
+		$teams = Team::all();
 		return view('project.team',compact('teams'));
 	}
 
