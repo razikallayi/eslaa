@@ -5,33 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Helpers\Helper;
 
-class Publication extends Model
+class ModernLaw extends Model
 {
 
-	const IMAGE_LOCATION = 'uploads/publications';
-	const PDF_LOCATION = 'uploads/publications/pdf';
+	const IMAGE_LOCATION = 'uploads/modernlaw';
+
+	protected $table = 'modern-laws';
 
 	protected $fillable = [
-		'name',
+		'title',
 		'slug',
-		'pdf',
 		'image',
 		'content',
+		'date',
 		'is_featured',
 		'is_published',
 		'listing_order',
 		'status',
 	];
+	protected $dates = ['date'];
 
-
-	public function pdfUrl(){
-		if($this->pdf == null){
-			return;
-		}
-		$pdfName = $this->pdf;   
-		return url(self::PDF_LOCATION."/".$pdfName);
+	public function detailPageUrl(){
+		return url('modern-law'.'/'.$this->slug);
 	}
-
 
 	public function imageUrl($imageName=null,$width=null,$height=null){
 		if(is_null($imageName)){

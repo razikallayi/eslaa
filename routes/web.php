@@ -91,6 +91,16 @@ Route::group([
 	Route::post('publications/image','PublicationController@saveImage');
 	Route::delete('publications/{id}','PublicationController@destroy');
 
+	Route::get('modern-law','ModernLawController@index');
+	Route::get('modern-law/add','ModernLawController@create');
+	Route::post('modern-law','ModernLawController@store');
+	Route::get('modern-law/edit/{id}','ModernLawController@create');
+	Route::put('modern-law/edit/{id}','ModernLawController@store');
+	Route::post('modern-law/image','ModernLawController@saveImage');
+	Route::delete('modern-law/{id}','ModernLawController@destroy');
+
+
+
 
 
 });

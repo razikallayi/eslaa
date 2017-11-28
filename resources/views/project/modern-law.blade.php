@@ -23,11 +23,30 @@
 
 <div class="nws">
   <div class="container">
+    @if($modernLaws->isEmpty())
      <div class="col-md-12"><h1>Coming Soon</h1></div>
-    
-     <!--<div class="col-md-12 no-padding">
+    @else
+     <div class="col-md-12 no-padding">
         <div class="row">
-          <div class="col-md-6">
+
+           @foreach($modernLaws as $modernLaw)
+                     <div class="col-md-6 col-sm-6">
+             <div class="nws-tp clearfix"><a href="{{$modernLaw->detailPageUrl()}}">
+               <div class="col-md-6 no-padding"><div class="nws-tp-img"><img src="{{$modernLaw->imageUrl()}}"></div></div>
+                <div class="col-md-6 no-padding">
+                    <div class="nws-tp-txt">
+                        <p>{{$modernLaw->title}}</p>
+                    </div>
+                </div>
+                
+                <div class="drm-tp clearfix"><div class="d"> <i class="fa fa-calendar"></i> {{$modernLaw->date->format('d-m-Y')}}</div></div>
+                </a>
+             </div>
+           </div>
+          @endforeach 
+
+
+         {{--  <div class="col-md-6">
             <div class="nws-tp clearfix"><a href="news-details.php">
               <div class="col-md-6 no-padding"><div class="nws-tp-img"><img src="{{url('project/images/nws1.jpg')}}"></div></div>
                <div class="col-md-6 no-padding">
@@ -55,9 +74,9 @@
             </div>
           </div>
         </div>
-     </div>-->
-     
-     <!--<div class="col-md-12 no-padding">
+     </div>
+
+     <div class="col-md-12 no-padding">
         <div class="row">
           <div class="col-md-6">
             <div class="nws-sec clearfix"><a href="news-details.php">
@@ -109,11 +128,11 @@
                <div class="drm clearfix"><div class="d"> <i class="fa fa-calendar"></i> 14-08-17</div><div class="rm"> Read More <i class="fa fa-arrow-circle-o-right"></i></div></div>
                </a>
             </div>
-          </div>
+          </div> --}}
           
         </div>
-     </div>-->
-     
+     </div>
+     @endif
      
      
   </div>

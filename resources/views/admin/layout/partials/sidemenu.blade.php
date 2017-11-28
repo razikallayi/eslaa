@@ -86,3 +86,24 @@
   </li>
 </ul>
 </li>
+
+
+
+<!-- ################# news ################## -->
+<li id="mnu-modern-law">
+  <a href="javascript:void(0);" class="menu-toggle">
+   <span>Modern Law</span>
+ </a>
+ <ul class="ml-menu">
+  <li  class="add">
+    <a href="{{url('admin/modern-law/add')}}" class="">
+      <span>Add Modern Law</span>
+    </a>
+  </li>
+  <li  class="manage">
+    <a href="{{url('admin/modern-law')}}" class="">
+      <span>Manage Modern Law</span>
+    </a>
+  </li>
+</ul>
+</li>

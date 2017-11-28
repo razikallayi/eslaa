@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Validator;
 use App\Models\Publication;
+use App\Helpers\Helper;
 
 class PublicationController extends Controller
 {

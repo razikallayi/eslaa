@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Validator;
+use Carbon\Carbon;
 use App\Models\News;
+use App\Helpers\Helper;
 
 class NewsController extends Controller
 {
@@ -69,6 +71,7 @@ class NewsController extends Controller
         else 
         {
             $updated = 'Added';
+             $date=Carbon::now();
             $news=News::create($request->all());
         }
 

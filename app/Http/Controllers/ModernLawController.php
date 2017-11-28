@@ -5,29 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Validator;
-use App\Models\Team;
+use App\Models\ModernLaw;
 use App\Helpers\Helper;
+use Carbon\Carbon;
 
-class TeamController extends Controller
+class ModernLawController extends Controller
 {
 
     public function index(Request $request)
     {
-        $teams = Team::orderBy('listing_order','desc')
+        $modernLaws = ModernLaw::orderBy('listing_order','desc')
         ->orderBy('updated_at','desc')->get();
 
-        return view('admin.team.manage',compact('teams'));
+        return view('admin.modern-law.manage',compact('modernLaws'));
     }
 
 
     public function create($id=null)
     {
         if($id != null){
-            $team = Team::find($id);
+            $modernLaw = ModernLaw::find($id);
         }
 
 
-        return view('admin.team.create',compact('team'));
+        return view('admin.modern-law.create',compact('modernLaw'));
     }
 
     public function saveImage(Request $request){
@@ -37,7 +38,7 @@ class TeamController extends Controller
         ]);
 
         $uploadImage=$request->image;
-        $location = str_finish(Team::IMAGE_LOCATION, '/');
+        $location = str_finish(ModernLaw::IMAGE_LOCATION, '/');
 
         return Helper::uploadImage($uploadImage, $location);
     }
@@ -51,7 +52,7 @@ class TeamController extends Controller
             $imageRule = 'required';
         }else{
             $update= true;
-            $team=Team::find($id);
+            $modernLaw=ModernLaw::find($id);
             $imageRule = '';
         }
 
@@ -65,17 +66,18 @@ class TeamController extends Controller
         $request['slug'] = str_slug($request->name);
         if($update){
             $updated = 'Updated';
-            $team->update($request->all());
+            $modernLaw->update($request->all());
         } 
         else 
         {
             $updated = 'Added';
-            $team=Team::create($request->all());
+            $date=Carbon::now();
+            $modernLaw=ModernLaw::create($request->all());
         }
 
-        if($team){
+        if($modernLaw){
             session()->flash('status','alert-success');
-            session()->flash('message','Successfully '.$updated.' <b>'.$team->name.'</b>!');
+            session()->flash('message','Successfully '.$updated.' <b>'.$modernLaw->name.'</b>!');
         }else{
             session()->flash('status','alert-danger');
             session()->flash('message', 'Failed!');
@@ -88,16 +90,16 @@ class TeamController extends Controller
 
     public function destroy($id=null){
         if($id!=null){
-            $team = Team::findOrFail($id);
-            $location = str_finish(Team::IMAGE_LOCATION, '/');
-            $filename = $team->image;
+            $modernLaw = ModernLaw::findOrFail($id);
+            $location = str_finish(ModernLaw::IMAGE_LOCATION, '/');
+            $filename = $modernLaw->image;
             if($filename!=null){
                 if(file_exists($location.$filename)){
                     unlink($location.$filename);
                 }
             }
 
-            $isDeleted = $team->delete();
+            $isDeleted = $modernLaw->delete();
             if($isDeleted){
                 session()->flash('status','alert-success');
                 session()->flash('message','Successfully Removed!');
@@ -116,9 +118,9 @@ class TeamController extends Controller
             'sort' => 'required|array',
             'page' => 'required'
         ]);
-        $counter = Team::count();
+        $counter = ModernLaw::count();
         foreach ($request->sort as $id) {
-            Team::where('id', $id)
+            ModernLaw::where('id', $id)
             ->update(['listing_order' => $counter--]);
         }
         return;
