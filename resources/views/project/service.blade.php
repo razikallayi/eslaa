@@ -70,7 +70,7 @@
         <li><h3>Our aim is to provide legal services at a professional level, offering effective solutions in the following areas:</h3></li>
 
         @foreach($services as $service)
-        <li id="a"><a href="" data-modal="#modal{{$service->slug}}" class="modal__trigger"><img src="{{$service->imageUrl()}}"><h4>{{$service->title}}</h4></a></li>
+        <li id="sector-{{$service->slug}}"><a href="" data-modal="#modal{{$service->slug}}" class="modal__trigger"><img src="{{$service->imageUrl()}}"><h4>{{$service->title}}</h4></a></li>
         @endforeach
       </ul>
     </div>

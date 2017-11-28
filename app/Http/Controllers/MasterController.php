@@ -14,7 +14,11 @@ class MasterController extends Controller
 {
 	public function index()
 	{
-		return view('project.index');
+		$allNews = News::all();
+		$publications =Publication::all();
+		$services = Service::all();
+		$modernLaws = Modernlaw::all();
+		return view('project.index',compact('allNews','publications','services','modernLaws'));
 	}
 	
 	public function about()

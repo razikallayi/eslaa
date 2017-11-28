@@ -72,9 +72,32 @@ $factory->define(App\Models\Team::class, function (Faker $faker) {
 
 
 $factory->define(App\Models\News::class, function (Faker $faker) {
-
 	$addImage =true;
 	$location = 'public/'.App\Models\News::IMAGE_LOCATION;
+	if($addImage==true){
+		$image = App\Helpers\Helper::uploadImage($faker->imageUrl(500,500),$location);
+		$filename = $image->getData()->filename;
+	}
+	else{
+		$filename = null;
+		$filename_bg = null;
+	}
+	$title =  $faker->sentence(3);
+	$slug = str_slug($title);
+
+	return [
+		'title' => $title,
+		'slug' =>str_slug($title),
+		'image' =>$filename,
+		'content' =>$faker->randomHtml(2,20),
+		'date' => $faker->date,
+	];
+});
+
+
+$factory->define(App\Models\ModernLaw::class, function (Faker $faker) {
+	$addImage =true;
+	$location = 'public/'.App\Models\ModernLaw::IMAGE_LOCATION;
 	if($addImage==true){
 		$image = App\Helpers\Helper::uploadImage($faker->imageUrl(500,500),$location);
 		$filename = $image->getData()->filename;

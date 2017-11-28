@@ -22,6 +22,10 @@
 
 <div class="nws">
   <div class="container">
+          @if($allNews->isEmpty())
+       <div class="col-md-12"><h1>Coming Soon</h1></div>
+      @else
+
      <div class="col-md-12 no-padding">
         <div class="row">
           @foreach($allNews as $news)
@@ -106,7 +110,7 @@
           
         </div>
      </div>
-     
+     @endif
      
      
   </div>

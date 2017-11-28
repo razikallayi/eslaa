@@ -28,9 +28,16 @@
 out a variety of interesting and profitable
 ventures for foreign investors....</p></div></a>
 </div>-->
-
-<div class="item clearfix"><a href="pdf/doing-bussiness-qatar.pdf" target="_blank"><img src="{{url('project/images/pub-lft.jpg')}}" class="img-responsive"></a></div>
-
+@if($publications->isEmpty())
+<div class="item"><h5>Coming soon</h5></div>
+@else
+@foreach($publications as $publication)
+<div class="item clearfix"><a href="{{@$publication->pdfUrl()}}"" target="_blank">
+  {{-- <img src="{{url('project/images/pub-lft.jpg')}}" class="img-responsive"> --}}
+  <embed src="{{@$publication->pdfUrl()}}#view=FitW" style="overflow:hidden;margin-top:-100px; width: 150px; height: 250px"/>
+  </a></div>
+  @endforeach
+  @endif
 </div>
 </div>
 </div>
@@ -39,12 +46,19 @@ ventures for foreign investors....</p></div></a>
 <div class="col-md-7 ml  col-xs-12  col-sm-6">
  <h2>Modern Law</h2>
  <div id="owl-demo2" class="owl-carousel owl-theme">
-   <div class="item clearfix"><a href="{{url('publications')}}">
+  @if($modernLaws->isEmpty())
+  <div class="item clearfix"><a href="{{url('publications')}}">
     <div class="col-md-3"><img src="{{url('project/images/icons/ml.svg')}}"></div>
     <div class="col-md-9"><h5>Coming Soon</h5></div></a>
   </div>
-  
-  
+  @else
+  @foreach($modernLaws as $modernLaw)
+  <div class="item clearfix"><a href="{{$modernLaw->detailPageUrl()}}">
+    <div class="col-md-3"><img src="{{$modernLaw->imageUrl()}}"></div>
+    <div class="col-md-9"><h5>{{$modernLaw->title}}</h5></div></a>
+  </div>
+  @endforeach
+  @endif
   
 </div>
 </div>
@@ -54,11 +68,22 @@ ventures for foreign investors....</p></div></a>
 <div class="col-md-6 no-padding">
  <div class="col-md-4"><h4>Latest News</h4></div>
  <div class="col-md-8">
+
    <div id="owl-demo" class="owl-carousel owl-theme">
+     @if($allNews->isEmpty())
+     <div class="item"><h5>Coming soon</h5></div>
+     @else
+     @foreach($allNews as $news)
+     <div class="item"><a href="{{$news->detailPageUrl()}}"><div class="ln-img">
+      <img src="{{$news->imageUrl()}}"></div><p>{{$news->title}}</p></a>
+    </div>
+    @endforeach 
+    @endif
+{{-- 
      <div class="item"><a href="{{url('news')}}"><div class="ln-img"><img src="{{url('project/images/nws1.jpg')}}"></div><p>A great moment where IBA Lawyers get together in a yacht cruise around Sydney... </p></a></div>
      <div class="item"><a href="{{url('news')}}"><div class="ln-img"><img src="{{url('project/images/nws2.jpg')}}"></div><p>Our participation in a productive workshop based on "Law firm management... </p></a></div>
      <div class="item"><a href="{{url('news')}}"><div class="ln-img"><img src="{{url('project/images/nws3.jpg')}}"></div><p>Our chairman Mr. Essa Al Sulaiti will be representing us at the @IBAevents from 8th to 13th... </p></a></div>
-     <div class="item"><a href="{{url('news')}}"><div class="ln-img"><img src="{{url('project/images/nws4.jpg')}}"></div><p>We add efficiency to your contracts by adding meticulous details. Get in touch for more information </p></a></div>
+     <div class="item"><a href="{{url('news')}}"><div class="ln-img"><img src="{{url('project/images/nws4.jpg')}}"></div><p>We add efficiency to your contracts by adding meticulous details. Get in touch for more information </p></a></div> --}}
    </div>
  </div>
 </div>
@@ -98,8 +123,14 @@ ventures for foreign investors....</p></div></a>
   </div>
   <div class="secto">
    <div id="owl-demo3" class="owl-carousel owl-theme">
-     <div class="item"><a href="{{url('service')}}#a"><div class="ln-img"><img src="{{url('project/images/a.jpg')}}"></div><h4>Arbitration</h4></a></div>
-     <div class="item"><a href="{{url('service')}}#cc"><div class="ln-img"><img src="{{url('project/images/cc.jpg')}}"></div><h4>Corporate & Commercial</h4></a></div>
+     @if($services->isEmpty())
+     <div class="item"><h5>Coming soon</h5></div>
+     @else
+     @foreach($services as $service)
+     <div class="item"><a href="{{url('service')}}#sector-{{$service->slug}}"><div class="ln-img"><img src="{{$service->imageUrl()}}"></div><h4>{{$service->title}}</h4></a></div>
+     @endforeach
+     @endif
+    {{--  <div class="item"><a href="{{url('service')}}#cc"><div class="ln-img"><img src="{{url('project/images/cc.jpg')}}"></div><h4>Corporate & Commercial</h4></a></div>
      <div class="item"><a href="{{url('service')}}#ec"><div class="ln-img"><img src="{{url('project/images/ec.jpg')}}"></div><h4>Engineering & Construction </h4></a></div>
      <div class="item"><a href="{{url('service')}}#le"><div class="ln-img"><img src="{{url('project/images/le.jpg')}}"></div><h4>Labour & Employment</h4></a></div>
      <div class="item"><a href="{{url('service')}}#pr"><div class="ln-img"><img src="{{url('project/images/pre.jpg')}}"></div><h4> Property & Real State</h4></a></div>
@@ -107,7 +138,7 @@ ventures for foreign investors....</p></div></a>
      <div class="item"><a href="{{url('service')}}#fb"><div class="ln-img"><img src="{{url('project/images/fb.jpg')}}"></div><h4> Finance & Banking </h4></a></div>
      <div class="item"><a href="{{url('service')}}#ie"><div class="ln-img"><img src="{{url('project/images/liti.jpg')}}"></div><h4>Litigation</h4></a></div>
      <div class="item"><a href="{{url('service')}}#c"><div class="ln-img"><img src="{{url('project/images/c.jpg')}}"></div><h4>Criminal</h4></a></div>
-     <div class="item"><a href="{{url('service')}}#s"><div class="ln-img"><img src="{{url('project/images/s.jpg')}}"></div><h4>Sports</h4></a></div>
+     <div class="item"><a href="{{url('service')}}#s"><div class="ln-img"><img src="{{url('project/images/s.jpg')}}"></div><h4>Sports</h4></a></div> --}}
    </div>
  </div>
 </div>
