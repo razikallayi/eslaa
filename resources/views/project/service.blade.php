@@ -106,7 +106,7 @@
 </div>
 
 @foreach($services as $service)
-<div id="modal{{$service->slug}}" class="krew-modal modal__bg" role="dialog" aria-hidden="true">
+<div id="modal{{$service->id}}" class="krew-modal modal__bg" role="dialog" aria-hidden="true">
   <div class="modal__dialog">
     <div class="modal__content sa">
       <h1>{{$service->title}}</h1>
