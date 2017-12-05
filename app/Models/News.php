@@ -24,6 +24,9 @@ class News extends Model
 	protected $dates = ['date'];
 
 	public function detailPageUrl(){
+		if($this->slug == ""){
+			return url('news'.'/'.$this->id);
+		}
 		return url('news'.'/'.$this->slug);
 	}
 

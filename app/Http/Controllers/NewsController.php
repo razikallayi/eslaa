@@ -15,7 +15,7 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         $allNews = News::orderBy('listing_order','desc')
-        ->orderBy('updated_at','desc')->get();
+                        ->orderBy('updated_at','desc')->get();
 
         return view('admin.news.manage',compact('allNews'));
     }
@@ -63,7 +63,7 @@ class NewsController extends Controller
 
         $this->validate($request,$rule);
 
-        $request['slug'] = str_slug($request->name);
+        $request['slug'] = str_slug($request->title);
         if($update){
             $updated = 'Updated';
             $news->update($request->all());
@@ -77,7 +77,7 @@ class NewsController extends Controller
 
         if($news){
             session()->flash('status','alert-success');
-            session()->flash('message','Successfully '.$updated.' <b>'.$news->name.'</b>!');
+            session()->flash('message','Successfully '.$updated.' <b>'.$news->title.'</b>!');
         }else{
             session()->flash('status','alert-danger');
             session()->flash('message', 'Failed!');

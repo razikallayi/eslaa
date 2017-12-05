@@ -14,10 +14,10 @@ class MasterController extends Controller
 {
 	public function index()
 	{
-		$allNews = News::all();
-		$publications =Publication::all();
-		$services = Service::all();
-		$modernLaws = Modernlaw::all();
+		$allNews = News::orderBy('updated_at','desc')->get();
+		$publications =Publication::orderBy('updated_at','desc')->get();
+		$services = Service::orderBy('updated_at','desc')->get();
+		$modernLaws = Modernlaw::orderBy('updated_at','desc')->get();
 		return view('project.index',compact('allNews','publications','services','modernLaws'));
 	}
 	
@@ -41,7 +41,7 @@ class MasterController extends Controller
 	
 	public function modernLaw()
 	{
-		$modernLaws = Modernlaw::all();
+		$modernLaws = Modernlaw::orderBy('updated_at','desc')->get();
 		return view('project.modern-law',compact('modernLaws'));
 	}
 
@@ -55,35 +55,39 @@ class MasterController extends Controller
 	
 	public function news()
 	{
-		$allNews = News::all();
+		$allNews = News::orderBy('updated_at','desc')->get();
 		return view('project.news',compact('allNews'));
 	}
 
 	
 	public function newsDetails($slug)
 	{
-		$news = News::where('slug',$slug)->first();
+		if(is_numeric($slug)){
+			$news = News::findOrFail($slug);
+		}else{
+			$news = News::where('slug',$slug)->firstOrFail();
+		}
 		return view('project.news-details',compact('news'));
 	}
 
 	
 	public function publications()
 	{
-		$publications =Publication::all();
+		$publications =Publication::orderBy('updated_at','desc')->get();
 		return view('project.publications',compact('publications'));
 	}
 
 	
 	public function service()
 	{
-		$services = Service::all();
+		$services = Service::orderBy('updated_at','desc')->get();
 		return view('project.service',compact('services'));
 	}
 
 	
 	public function team()
 	{
-		$teams = Team::all();
+		$teams = Team::orderBy('updated_at','desc')->get();
 		return view('project.team',compact('teams'));
 	}
 

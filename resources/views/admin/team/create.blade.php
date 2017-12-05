@@ -41,7 +41,6 @@
 						</div>
 						@endif
 
-
 						<div class="row clearfix">
 
 							<div class="col-sm-12">
@@ -49,6 +48,16 @@
 								<div class="form-group ">
 									<div class="form-line">
 										<input type="text" value="{{$team->name or old('name')}}" name="name" maxlength="191" required class="form-control" >
+									</div>
+								</div>
+							</div>
+
+		
+							<div class="col-sm-12">
+								<label>Designation</label>
+								<div class="form-group ">
+									<div class="form-line">
+										<input type="text" value="{{$team->designation or old('designation')}}" name="designation" maxlength="191" class="form-control" >
 									</div>
 								</div>
 							</div>
