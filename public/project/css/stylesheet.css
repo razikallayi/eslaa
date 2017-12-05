@@ -963,7 +963,7 @@ label[for="file-upload"] {
  .con-rgt ul li:nth-child(2n) img{left:0}
  .con-btm h2{margin:30px}
  .client ul li{width:100%}
- .parallax-one{height:auto}
+ .parallax-one{height:400px;background-attachment: inherit;}
  footer .col-md-2 img{display:inline-block; text-align:center}
  footer .col-md-2{text-align:center}
  footer .col-md-5{padding:0 30px}

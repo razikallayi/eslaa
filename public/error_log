@@ -1,0 +1,4 @@
+[24-Nov-2017 05:03:07 UTC] PHP Warning:  require(/home/fullfilla/public_html/eslaa/public/../vendor/autoload.php): failed to open stream: No such file or directory in /home/fullfilla/public_html/eslaa/public/index.php on line 24
+[24-Nov-2017 05:03:07 UTC] PHP Fatal error:  require(): Failed opening required '/home/fullfilla/public_html/eslaa/public/../vendor/autoload.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/fullfilla/public_html/eslaa/public/index.php on line 24
+[24-Nov-2017 05:04:03 UTC] PHP Warning:  require(/home/fullfilla/public_html/eslaa/public/../vendor/autoload.php): failed to open stream: No such file or directory in /home/fullfilla/public_html/eslaa/public/index.php on line 24
+[24-Nov-2017 05:04:03 UTC] PHP Fatal error:  require(): Failed opening required '/home/fullfilla/public_html/eslaa/public/../vendor/autoload.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/fullfilla/public_html/eslaa/public/index.php on line 24
