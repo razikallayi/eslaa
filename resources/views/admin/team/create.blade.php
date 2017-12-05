@@ -56,7 +56,7 @@
 								<label>Name Arabic</label>
 								<div class="form-group ">
 									<div class="form-line">
-										<input type="text" value="{{$team->name_ar or old('name_ar')}}" name="name_ar" maxlength="191" required class="form-control" >
+										<input type="text" value="{{$team->name_ar or old('name_ar')}}" name="name_ar" maxlength="191" class="form-control" >
 									</div>
 								</div>
 							</div>

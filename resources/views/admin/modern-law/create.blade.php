@@ -55,10 +55,10 @@
 
 
 							<div class="col-sm-6">
-								<label>Title Arabic<code>*</code> </label>
+								<label>Title Arabic</label>
 								<div class="form-group ">
 									<div class="form-line">
-										<input type="text" value="{{$modernLaw->title_ar or old('title_ar')}}" name="title_ar" maxlength="191" required class="form-control" >
+										<input type="text" value="{{$modernLaw->title_ar or old('title_ar')}}" name="title_ar" maxlength="191" class="form-control" >
 									</div>
 								</div>
 							</div>
