@@ -62,7 +62,7 @@ class ServiceController extends Controller
 
         $this->validate($request,$rule);
 
-        $request['slug'] = str_slug($request->name);
+        $request['slug'] = str_slug($request->title);
         if($update){
             $updated = 'Updated';
             $service->update($request->all());

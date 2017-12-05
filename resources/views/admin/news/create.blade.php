@@ -45,10 +45,10 @@
 						<div class="row clearfix">
 
 							<div class="col-sm-12">
-								<label>Title<code>*</code> </label>
+								<label>Title</label>
 								<div class="form-group ">
 									<div class="form-line">
-										<input type="text" value="{{$news->title or old('title')}}" name="title" maxlength="191" required class="form-control" >
+										<input type="text" value="{{$news->title or old('title')}}" name="title" maxlength="191" class="form-control" >
 									</div>
 								</div>
 							</div>
