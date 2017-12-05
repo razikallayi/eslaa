@@ -49,7 +49,7 @@
 						<td>
 						<img height="50px" src="{{$service->imageUrl()}}">
 						</td>
-						<td>{{@$service->title}}</td>
+						<td>{{@$service->title}}<br/>{{@$service->translate('title','ar',false)}}</td>
 						<td><a href="{{url('admin/services/edit/'.$service->id)}}"><i class="material-icons">edit</i></a></td>
 						<td width="5px"><a href="{{url('admin/services/'.$service->id)}}" onclick="if(!confirm('Are you sure want to delete?')) return false;event.preventDefault();
                                                  document.getElementById('delete-form-{{$service->id}}').submit();">

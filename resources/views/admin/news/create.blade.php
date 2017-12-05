@@ -44,7 +44,7 @@
 
 						<div class="row clearfix">
 
-							<div class="col-sm-12">
+							<div class="col-sm-6">
 								<label>Title</label>
 								<div class="form-group ">
 									<div class="form-line">
@@ -53,12 +53,29 @@
 								</div>
 							</div>
 
+							<div class="col-sm-6">
+								<label>Title Arabic</label>
+								<div class="form-group ">
+									<div class="form-line">
+										<input type="text" value="{{$news->title_ar or old('title_ar')}}" name="title_ar" maxlength="191" class="form-control" >
+									</div>
+								</div>
+							</div>
 
-						<div class="col-sm-12">
+
+						<div class="col-sm-6">
 							<label>Content</label>
 							<div class="form-group">
 								<div class="form-line">
 									<textarea name="content" rows="10" class="form-control htmlEditor">{{$news->content or old('content')}}</textarea>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<label>Content Arabic</label>
+							<div class="form-group">
+								<div class="form-line">
+									<textarea name="content_ar" rows="10" class="form-control htmlEditor">{{$news->content_ar or old('content_ar')}}</textarea>
 								</div>
 							</div>
 						</div>

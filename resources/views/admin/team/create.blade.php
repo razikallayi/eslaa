@@ -43,7 +43,7 @@
 
 						<div class="row clearfix">
 
-							<div class="col-sm-12">
+							<div class="col-sm-6">
 								<label>Name<code>*</code> </label>
 								<div class="form-group ">
 									<div class="form-line">
@@ -52,8 +52,17 @@
 								</div>
 							</div>
 
+							<div class="col-sm-6">
+								<label>Name Arabic</label>
+								<div class="form-group ">
+									<div class="form-line">
+										<input type="text" value="{{$team->name_ar or old('name_ar')}}" name="name_ar" maxlength="191" required class="form-control" >
+									</div>
+								</div>
+							</div>
+
 		
-							<div class="col-sm-12">
+							<div class="col-sm-6">
 								<label>Designation</label>
 								<div class="form-group ">
 									<div class="form-line">
@@ -63,11 +72,30 @@
 							</div>
 
 
-						<div class="col-sm-12">
+							<div class="col-sm-6">
+								<label>Designation Arabic</label>
+								<div class="form-group ">
+									<div class="form-line">
+										<input type="text" value="{{$team->designation_ar or old('designation_ar')}}" name="designation_ar" maxlength="191" class="form-control" >
+									</div>
+								</div>
+							</div>
+
+
+						<div class="col-sm-6">
 							<label>Content</label>
 							<div class="form-group">
 								<div class="form-line">
 									<textarea name="content" rows="10" class="form-control htmlEditor">{{$team->content or old('content')}}</textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<label>Content Arabic</label>
+							<div class="form-group">
+								<div class="form-line">
+									<textarea name="content_ar" rows="10" class="form-control htmlEditor">{{$team->content_ar or old('content_ar')}}</textarea>
 								</div>
 							</div>
 						</div>

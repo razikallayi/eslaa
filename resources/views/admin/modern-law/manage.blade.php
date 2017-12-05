@@ -49,7 +49,7 @@
 						<td>
 						<img height="50px" src="{{$modernLaw->imageUrl()}}">
 						</td>
-						<td>{{@$modernLaw->title}}</td>
+						<td>{{@$modernLaw->title}}<br/>{{@$modernLaw->translate('title','ar',false)}}</td>
 						<td><a href="{{url('admin/modern-law/edit/'.$modernLaw->id)}}"><i class="material-icons">edit</i></a></td>
 						<td width="5px"><a href="{{url('admin/modern-law/'.$modernLaw->id)}}" onclick="if(!confirm('Are you sure want to delete?')) return false;event.preventDefault();
                                                  document.getElementById('delete-form-{{$modernLaw->id}}').submit();">

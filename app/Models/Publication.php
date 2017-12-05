@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel as Model;
 use App\Helpers\Helper;
 
 class Publication extends Model
@@ -21,6 +21,9 @@ class Publication extends Model
 		'is_published',
 		'listing_order',
 		'status',
+
+		'show_in_english',
+		'show_in_arabic',
 	];
 
 
@@ -31,6 +34,7 @@ class Publication extends Model
 		$pdfName = $this->pdf;   
 		return url(self::PDF_LOCATION."/".$pdfName);
 	}
+
 
 
 	public function imageUrl($imageName=null,$width=null,$height=null){

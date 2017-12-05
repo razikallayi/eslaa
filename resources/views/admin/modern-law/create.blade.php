@@ -44,7 +44,7 @@
 
 						<div class="row clearfix">
 
-							<div class="col-sm-12">
+							<div class="col-sm-6">
 								<label>Title<code>*</code> </label>
 								<div class="form-group ">
 									<div class="form-line">
@@ -54,14 +54,33 @@
 							</div>
 
 
-						<div class="col-sm-12">
-							<label>Content</label>
-							<div class="form-group">
-								<div class="form-line">
-									<textarea name="content" rows="10" class="form-control htmlEditor">{{$modernLaw->content or old('content')}}</textarea>
+							<div class="col-sm-6">
+								<label>Title Arabic<code>*</code> </label>
+								<div class="form-group ">
+									<div class="form-line">
+										<input type="text" value="{{$modernLaw->title_ar or old('title_ar')}}" name="title_ar" maxlength="191" required class="form-control" >
+									</div>
 								</div>
 							</div>
-						</div>
+
+							<div class="col-sm-6">
+								<label>Content</label>
+								<div class="form-group">
+									<div class="form-line">
+										<textarea name="content" rows="10" class="form-control htmlEditor">{{$modernLaw->content or old('content')}}</textarea>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="col-sm-6">
+								<label>Content Arabic</label>
+								<div class="form-group">
+									<div class="form-line">
+										<textarea name="content_ar" rows="10" class="form-control htmlEditor">{{$modernLaw->content_ar or old('content_ar')}}</textarea>
+									</div>
+								</div>
+							</div>
 
 							<div class="col-sm-12">
 								<div class="form-group">

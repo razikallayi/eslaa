@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel as Model;
 use App\Helpers\Helper;
 
 class News extends Model
@@ -20,6 +20,9 @@ class News extends Model
 		'is_published',
 		'listing_order',
 		'status',
+
+		'title_ar',
+		'content_ar',
 	];
 	protected $dates = ['date'];
 

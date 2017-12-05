@@ -49,7 +49,7 @@
 						<td>
 						<img height="50px" src="{{$news->imageUrl()}}">
 						</td>
-						<td>{{@$news->title}}</td>
+						<td>{{@$news->title}}<br/>{{@$news->translate('title','ar',false)}}</td>
 						<td><a href="{{url('admin/news/edit/'.$news->id)}}"><i class="material-icons">edit</i></a></td>
 						<td width="5px"><a href="{{url('admin/news/'.$news->id)}}" onclick="if(!confirm('Are you sure want to delete?')) return false;event.preventDefault();
                                                  document.getElementById('delete-form-{{$news->id}}').submit();">

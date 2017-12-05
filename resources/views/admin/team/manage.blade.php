@@ -50,8 +50,8 @@
 						<td>
 						<img height="50px" src="{{$team->imageUrl()}}">
 						</td>
-						<td>{{@$team->name}}</td>
-						<td>{{@$team->designation}}</td>
+						<td>{{@$team->name}}<br/>{{@$team->translate('name','ar',false)}}</td>
+						<td>{{@$team->designation}}<br/>{{@$team->translate('designation','ar',false)}}</td>
 						<td><a href="{{url('admin/teams/edit/'.$team->id)}}"><i class="material-icons">edit</i></a></td>
 						<td width="5px"><a href="{{url('admin/teams/'.$team->id)}}" onclick="if(!confirm('Are you sure want to delete?')) return false;event.preventDefault();
                                                  document.getElementById('delete-form-{{$team->id}}').submit();">

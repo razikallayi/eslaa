@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel as Model;
 use App\Helpers\Helper;
 
 class Team extends Model
@@ -20,11 +20,16 @@ class Team extends Model
 		'is_published',
 		'listing_order',
 		'status',
+
+		'name_ar',
+		'designation_ar',
+		'content_ar',
 	];
 
 	public function detailPageUrl(){
 		return $this->url;
 	}
+
 
 	public function imageUrl($imageName=null,$width=null,$height=null){
 		if(is_null($imageName)){

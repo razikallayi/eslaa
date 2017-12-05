@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel as Model;
 use App\Helpers\Helper;
 
 class ModernLaw extends Model
@@ -22,6 +22,9 @@ class ModernLaw extends Model
 		'is_published',
 		'listing_order',
 		'status',
+
+		'title_ar',
+		'content_ar',
 	];
 	protected $dates = ['date'];
 

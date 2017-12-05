@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel as Model;
 use App\Helpers\Helper;
 
 class Service extends Model
@@ -22,6 +22,9 @@ class Service extends Model
         'is_published',
         'listing_order',
         'status',
+
+        'title_ar',
+        'content_ar',
     ];
 
     public function detailPageUrl(){
@@ -42,15 +45,15 @@ class Service extends Model
             $thumbName= $width."_".$height."_".substr($imageName,0,-4);
             $original = self::IMAGE_LOCATION."/".$imageName;
             if(file_exists($thumbName)) {
-               $imageName= $thumbName;
-           }else{
-             if( !file_exists($original)){
-                 return;
-             }
-             $imageDetails = Helper::uploadImage($original,self::IMAGE_LOCATION,$thumbName,$width,$height);
-             $imageName =  $imageDetails->getData()->filename;
-         }
-     }
-     return url(self::IMAGE_LOCATION."/".$imageName);
- }
+             $imageName= $thumbName;
+         }else{
+           if( !file_exists($original)){
+               return;
+           }
+           $imageDetails = Helper::uploadImage($original,self::IMAGE_LOCATION,$thumbName,$width,$height);
+           $imageName =  $imageDetails->getData()->filename;
+       }
+   }
+   return url(self::IMAGE_LOCATION."/".$imageName);
+}
 }
