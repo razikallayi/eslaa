@@ -35,7 +35,8 @@
 					<tr>
 						<th width="10">Sl.No</th>
 						<th>Publication</th>
-						<th width="10">Delete</th>
+						<th width="20">Download</th>
+						<th width="10">Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -44,6 +45,7 @@
 					<tr>
 						<td>{{$loop->iteration}}</td>
 						<td><embed src="{{@$publication->pdfUrl()}}#view=FitW"  height="300px"/></td>
+						<td><a href="{{@$publication->pdfUrl()}}" class="btn btn-sm btn-info" target="_blank">View</a></td>
 						<td><a href="{{url('admin/publications/edit/'.$publication->id)}}#toolbar=0&navpanes=0&scrollbar=1"><i class="material-icons">edit</i></a></td>
 						<td width="5px"><a href="{{url('admin/publications/'.$publication->id)}}" onclick="if(!confirm('Are you sure want to delete?')) return false;event.preventDefault();
                                                  document.getElementById('delete-form-{{$publication->id}}').submit();">
