@@ -134,7 +134,7 @@ class MasterController extends Controller
 		if(!Hash::check($request->captcha, $request->_crypt)){
 			Session::flash('status','alert-danger');
 			Session::flash('message','Invalid Sum!');
-			return;
+			return back();
 		}
 
 		Mail::to(ContactMail::getDestinationEmails())->send(new ContactMail($request));
