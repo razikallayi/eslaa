@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head></head>
-<body style='background: #0b2244; color: #FFF'>
-<table width='600px' border='0'>
+<body>
+<table width='600px' border='0' style='background: #0b2244; color: #FFF'>
 		<thead>
 		<tr style='background: #FFF; color: #0b2244'><th colspan='2'><img style='height:50px;' src='{{url(config('whyte.project.logo'))}}'><h4>Contact Enquiry from {{config('whyte.project.name')}} Website</h4></th></tr>
 		</thead>
