@@ -94,6 +94,27 @@ input[type=number]::-webkit-outer-spin-button {
                     <div class="form-group"><img src="{{$captcha['imageUrl']}}">
                     <input type="number" max="999" class="captcha-box form-control" name="captcha"/>
                  </div>
+                 <div class="col-md-12">
+                   @if (count($errors) > 0)
+                   <div class="alert alert-danger">
+                     <ul>
+                       @foreach ($errors->all() as $error)
+                       <li>{{ $error }}</li>
+                       @endforeach
+                     </ul>
+                   </div>
+                   @endif
+
+
+                   @if (session()->has('message'))
+                   <div class="alert {{session()->get('status')}}">
+                     <ul>
+                       <li>{!!session()->get('message')!!}</li>
+                     </ul>
+                   </div>
+                   @endif
+                   <input type="hidden" name="_crypt" value="{{$captcha['crypt']}}"/>
+                 </div>
                  <div class="col-md-12"><div class="form-group"><button type="submit" class="btn-con">SEND</button></div></div>
                </div>
            </form>
