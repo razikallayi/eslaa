@@ -28,7 +28,7 @@ class CareerMail extends Mailable
 
     public static function getDestinationEmails()
     {
-       return ['info@eslaa.com'];
+       return ['razi@whytecreations.in'];
     }
 
     /**
@@ -39,7 +39,6 @@ class CareerMail extends Mailable
     public function build()
     {
        $request = $this->request;
-
        $fileContent = File::get($request->file_source->getRealPath());
        $fileExtension = $request->file_source->getClientOriginalExtension();
        $attachmentName = str_slug($request->file_source)."_resume.".$fileExtension;

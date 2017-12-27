@@ -26,6 +26,7 @@ Route::get('clear',function(){
 Route::get('/', 'MasterController@index');
 Route::get('about', 'MasterController@about');
 Route::get('career', 'MasterController@career');
+Route::post('career', 'MasterController@careerMail');
 Route::get('clients', 'MasterController@clients');
 Route::get('modern-law', 'MasterController@modernLaw');
 Route::get('news', 'MasterController@news');

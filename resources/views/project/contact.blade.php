@@ -4,11 +4,18 @@
 <style>
 .captcha-box{
   display: inline;
-    width: 55px;
-    height: 33px;
-    padding: 4px 4px;
-    color: #fff;
-    border: 1px solid #bbb;
+  width: 55px;
+  height: 33px;
+  padding: 4px 4px;
+  color: #fff;
+  border: 1px solid #bbb;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0; 
 }
 </style>
 @endsection
@@ -75,8 +82,8 @@
                  </div>
                  <div class="col-md-6"><div class="form-group"> <textarea name="message" class="form-control" placeholder="Message" required></textarea></div>
                </div>
-                 <div class="col-md-6"><div class="form-group"><img src="{{$captchaUrl}}">
-                 <input type="text" maxlength="3" class="captcha-box form-control" name="captcha"/>
+                 <div class="col-md-6"><div class="form-group"><img src="{{$captcha['imageUrl']}}">
+                 <input type="number" max="999" class="captcha-box form-control" name="captcha"/>
                  {{-- <div class="col-md-6"><div class="form-group"><img src="{{url('project/images/captcha.png')}}"></div></div> --}}
                </div>
              </div>
@@ -101,7 +108,7 @@
                  </ul>
                </div>
                @endif
-               <input type="hidden" name="_crypt" value="{{$crypt}}"/>
+               <input type="hidden" name="_crypt" value="{{$captcha['crypt']}}"/>
              </div>
                  {{-- <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script> --}}
 {{--                  <div id="_g-recaptcha"></div>

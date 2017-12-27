@@ -1,4 +1,23 @@
 @extends('project.layout.master')
+@section('styles')
+<style>
+.captcha-box{
+  display: inline;
+  width: 55px;
+  height: 33px;
+  padding: 4px 4px;
+  color: #fff;
+  border: 1px solid #bbb;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0; 
+}
+</style>
+@endsection
 @section('content')
 
 
@@ -56,23 +75,26 @@
     
     <div class="col-md-12 no-padding">
       <div class="cr-form">
-         <form class="frm">
+         <form class="frm" action="{{url('career')}}" method="post" enctype="multipart/form-data">
+          {{csrf_field()}}
+          <input type="hidden" name="_crypt" value="{{$captcha['crypt']}}"/>
                <h3>Post Your Resume</h3>
                <h4>Simply call, Email, or use the form below to get in touch</h4>
                <div class="row">
                  <div class="col-md-6">
-                   <div class="form-group"><input type="text" class="form-control" placeholder="Name"></div>
-                   <div class="form-group"><input type="text" class="form-control" placeholder="Email"></div>
-                   <div class="form-group"><input type="text" class="form-control" placeholder="Phone"></div>
-                   <div class="form-group"><select class="form-control"><option>Applying For</option><option>Applying For</option><option>Applying For</option><option>Applying For</option></select></div>
+                   <div class="form-group"><input type="text" name="name" class="form-control" placeholder="Name"></div>
+                   <div class="form-group"><input type="email" name="email" class="form-control" placeholder="Email"></div>
+                   <div class="form-group"><input type="number" name="phone" class="form-control" placeholder="Phone"></div>
+                   <div class="form-group"><select name="applying_for" class="form-control"><option>Applying For</option><option>Applying For</option><option>Applying For</option><option>Applying For</option></select></div>
                  </div>
                  <div class="col-md-6">
                  
-                   <div class="form-group"><span id="filename">Select your file</span><label for="file-upload"><img src="{{url('project/images/icons/attach.png')}}"><input type="file" id="file-upload" class="form-control"></label></div>
+                   <div class="form-group"><span id="filename">Select your file</span><label for="file-upload"><img src="{{url('project/images/icons/attach.png')}}"><input name="file_source" accept=".pdf,.doc,.docx" type="file" id="file-upload" class="form-control"></label></div>
                  	<div class="form-group"><textarea class="form-control" placeholder="Message"></textarea></div>
-                    <div class="form-group text-left"><img src="{{url('project/images/captcha.png')}}"></div>
+                    <div class="form-group"><img src="{{$captcha['imageUrl']}}">
+                    <input type="number" max="999" class="captcha-box form-control" name="captcha"/>
                  </div>
-                 <div class="col-md-12"><div class="form-group"><button class="btn-con">SEND</button></div></div>
+                 <div class="col-md-12"><div class="form-group"><button type="submit" class="btn-con">SEND</button></div></div>
                </div>
            </form>
       </div>
