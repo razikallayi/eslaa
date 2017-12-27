@@ -15,7 +15,6 @@ use Image;
 use File;
 use Hash;
 use Mail;
-use Mail;
 
 class MasterController extends Controller
 {
