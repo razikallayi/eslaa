@@ -26,7 +26,7 @@ class ContactMail extends Mailable
 
     public static function getDestinationEmails()
     {
-       return ['info@eslaa.com'];
+       return ['razi@whytecreations.in'];
     }
 
     /**

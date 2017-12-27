@@ -73,32 +73,36 @@
                    <div class="form-group"> <input name="email" type="email" class="form-control" placeholder="Email" required></div>
                    <div class="form-group"> <input name="phone" type="number" class="form-control" placeholder="Phone"></div>
                  </div>
-                 <div class="col-md-6"><div class="form-group"> <textarea name="message" class="form-control" placeholder="Message" required></textarea></div></div>
+                 <div class="col-md-6"><div class="form-group"> <textarea name="message" class="form-control" placeholder="Message" required></textarea></div>
+               </div>
                  <div class="col-md-6"><div class="form-group"><img src="{{$captchaUrl}}">
                  <input type="text" maxlength="3" class="captcha-box form-control" name="captcha"/>
                  {{-- <div class="col-md-6"><div class="form-group"><img src="{{url('project/images/captcha.png')}}"></div></div> --}}
-               </div></div>
-
-                 @if (count($errors) > 0)
-                 <div class="alert alert-danger">
-                   <ul>
-                     @foreach ($errors->all() as $error)
-                     <li>{{ $error }}</li>
-                     @endforeach
-                   </ul>
-                 </div>
-                 @endif
+               </div>
+             </div>
 
 
-                 @if (session()->has('message'))
-                 <div class="alert {{session()->get('status')}}">
-                   <ul>
-                     <li>{!!session()->get('message')!!}</li>
-                   </ul>
-                 </div>
-                 @endif
-                 <input type="hidden" name="_crypt" value="{{$crypt}}"/>
+             <div class="col-md-12">
+               @if (count($errors) > 0)
+               <div class="alert alert-danger">
+                 <ul>
+                   @foreach ($errors->all() as $error)
+                   <li>{{ $error }}</li>
+                   @endforeach
+                 </ul>
+               </div>
+               @endif
 
+
+               @if (session()->has('message'))
+               <div class="alert {{session()->get('status')}}">
+                 <ul>
+                   <li>{!!session()->get('message')!!}</li>
+                 </ul>
+               </div>
+               @endif
+               <input type="hidden" name="_crypt" value="{{$crypt}}"/>
+             </div>
                  {{-- <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script> --}}
 {{--                  <div id="_g-recaptcha"></div>
                  <div class="g-recaptcha" data-sitekey="6Lfy1DsUAAAAABoq4erFAB_BGHVfGOYMMawGQXuD" data-size="invisible" data-callback="_submitForm" data-badge="bottomright"></div><script src="https://www.google.com/recaptcha/api.js" async defer></script>
