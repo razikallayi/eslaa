@@ -10,9 +10,11 @@ use App\Models\Service;
 use App\Models\ModernLaw;
 use App\Models\Publication;
 use App\Mail\ContactMail;
+use Session;
 use Image;
 use File;
 use Hash;
+use Mail;
 use Mail;
 
 class MasterController extends Controller
