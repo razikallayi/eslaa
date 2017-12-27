@@ -36,7 +36,7 @@ Route::get('team', 'MasterController@team');
 
 
 Route::get('contact', 'MasterController@contact');
-Route::post('contact', 'MasterController@contact_mail');
+Route::post('contact', 'MasterController@contactMail');
 
 Auth::routes();
 
